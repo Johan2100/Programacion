@@ -1,0 +1,89 @@
+package Main;
+
+import java.util.Scanner;
+
+import Empleados.Empleados;
+import Empleados.TipoTurnos;
+import Hospital.Hospital;
+
+
+
+public class MainHospital {
+	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		
+		// REGISTRAR HOSPITAL  --
+        System.out.println("Ingresa nombre Hospital: ");
+        String nombreHospital = sc.nextLine();
+        Empleados[] trabajadores = new Empleados[0];
+        
+        Hospital hospital = new Hospital(nombreHospital,trabajadores);
+        
+        // MENU DE OPCIONES --
+
+        int op;
+        do{
+            System.out.printf("""
+                    *** GESTIÓN HOSPITAL %s ***
+                    
+                    1. Añadir Empleado.
+                    2. Mostrar datos Empleado.
+                    0. Salir.
+                    
+                    
+                    """, nombreHospital);
+
+            System.out.println();
+            op = sc.nextInt();
+            sc.nextLine();
+            
+            switch(op) {
+            
+            case 0->{
+            	System.out.println("Saliendo del programa...");
+            	System.exit(1);
+            }
+            
+            case 1->{
+            	System.out.print("Introduce nombre del empleado");
+            	String nombreE = sc.nextLine();
+            	
+            	System.out.print("Introduce salario base: ");
+            	double salB = sc.nextDouble();
+            	sc.nextLine();
+            	
+            	System.out.print("Introduce NIF: ");
+            	String NifE = sc.nextLine();
+            	
+            	System.out.println("""
+            			*** Tipo de Empleado ***
+            			
+            			1. Enfermero
+            			2. Médico
+            			3. Personal Administrativo
+            			
+            			""");
+            	int opT = sc.nextInt();
+            	switch(opT) {
+            	
+            	case 1 ->{
+            		System.out.println("Tipo de turno (mañana, tarde o noche) ");
+            		
+            		while(TipoTurnos.leerTeclado() == null) {
+            			TipoTurnos turno = TipoTurnos.leerTeclado();
+            		}
+            		
+            	}
+            	
+            	} //switch
+            	
+            }
+            
+            }
+            
+        }while(op != 0);
+	
+	}		
+
+}

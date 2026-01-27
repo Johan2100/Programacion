@@ -1,0 +1,257 @@
+package mainEnvios;
+
+import java.util.Scanner;
+
+import funciones.CentralEnvios;
+import model2.Envio;
+import model2.EnvioEstandar;
+import model2.EnvioRefrigerado;
+import model2.EnvioUrgente;
+import model2.EstadoEnvio;
+import repositorio.RepositorioEnvios;
+
+
+public class MainEnvio {
+	static Scanner sc = new Scanner(System.in);
+	private static int code = 0;
+	
+	public static void main(String[] args) {
+		RepositorioEnvios Repo = new RepositorioEnvios();
+		
+		int op;
+		do {
+			System.out.println("""
+					
+					*** GESTIÓN ENVIOS ***
+
+					1. Gestion de envios
+					2. Coste Total de Envios
+					3. Coste Total de Seguros
+					4. Actualización del Estado
+					5. Listado Envios
+					0. Salir
+					""");
+			op = sc.nextInt();
+			sc.nextLine();
+
+			switch (op) {
+			case 1 -> {
+				subMenu();
+
+			}
+			case 2 -> {
+				System.out.printf("El coste total de envios es de %.2f%n",CentralEnvios.costeTotal());
+				
+
+			}
+			case 3->{
+				System.out.printf("El coste total de envios es de %.2f%n", CentralEnvios.costeTotalSeguros());
+				
+			}
+			case 4 ->{
+				menuActualizarEstado();
+			}
+			
+			case 5 ->{
+				Repo.mostrarListado();
+				
+			}
+
+			case 0 -> {
+				System.out.println("Saliendo...");
+			}
+
+			default -> System.out.println("Opción no válida");
+
+			}
+
+		} while (op != 0);
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void subMenu() {
+		
+		int op;
+		do {
+			System.out.println("""
+					
+					*** GESTIÓN ENVIO ***
+
+					1. Añadir Envio
+					2. Eliminar Envio
+					3. Modificar Envio 
+					0. Volver.
+
+
+					""");
+
+			System.out.println();
+			op = sc.nextInt();
+			sc.nextLine();
+			
+
+			switch (op) {
+			case 1 -> {
+				printRegistrarEnvio();
+			}
+			case 2 -> {
+				System.out.print("Introduce codigo: ");
+				int codigo = sc.nextInt();
+				RepositorioEnvios.deleteEnvio(codigo);
+				System.out.println((RepositorioEnvios.deleteEnvio(codigo) == true )? "No se ha podido eliminar":" Eliminado correctamente ");
+
+			}
+			case 3 ->{
+				printModifyEnvio();
+				
+			}
+
+			case 0 -> {
+				System.out.println("Volviendo...");
+			}
+
+			default -> System.out.println("Opción no válida");
+
+			}
+
+		} while (op != 0);
+		
+	}
+	
+	public static void printRegistrarEnvio() { 
+		
+		System.out.print("Introduce el origen:  ");
+		String origen = sc.nextLine();
+		
+		System.out.print("Introduce el destino: ");
+		String destino = sc.nextLine();
+		
+		System.out.print("Introduce el peso: ");
+		int pesoPedido = sc.nextInt();
+		
+		System.out.println("""
+				-- TIPO DE ENVIO -- 
+				
+				1. Estandar
+				2. Urgente
+				3. Refrigerado 
+				
+				""");
+		int opT = sc.nextInt(); sc.nextLine();
+		
+		switch(opT) {
+			case 1 -> {
+				int DiasEstimados = ((int)(Math.random() * 10 + 1));
+				System.out.printf("Dias estidamos: %d%n ",DiasEstimados);
+				Envio envioT = new EnvioEstandar(origen, destino, pesoPedido, code++, DiasEstimados);
+				CentralEnvios.registrarEnvio(envioT);
+
+			}
+			case 2 -> {
+				System.out.print("Introduce recargo: ");
+				double recargo = sc.nextDouble();
+				Envio envioU = new EnvioUrgente(origen, destino, pesoPedido, code++, recargo);
+				CentralEnvios.registrarEnvio(envioU);
+
+			}
+			case 3->{
+				System.out.print("Introduce temperatura: ");
+				double temp = sc.nextDouble();
+				Envio envioR = new EnvioRefrigerado(origen, destino, pesoPedido, code++, temp);
+				CentralEnvios.registrarEnvio(envioR);
+			}
+		
+		}
+	}
+	
+	public static void printModifyEnvio() {
+		
+		System.out.print("Introduce código: ");
+		int codMod = sc.nextInt(); sc.nextLine();
+		
+		System.out.print("Introduce el origen:  ");
+		String origen = sc.nextLine();
+		
+		System.out.print("Introduce el destino: ");
+		String destino = sc.nextLine();
+		
+		System.out.print("Introduce el peso: ");
+		int pesoPedido = sc.nextInt();
+		
+		System.out.println("""
+				-- TIPO DE ENVIO -- 
+				
+				1. Estandar
+				2. Urgente
+				3. Refrigerado 
+				
+				""");
+		int opT = sc.nextInt(); sc.nextLine();
+		
+		switch(opT) {
+		
+			case 1 ->{
+				int DiasEstimados = ((int)(Math.random() * 10 + 1));
+				System.out.printf("Dias estidamos: %d%n ",DiasEstimados);
+				Envio envioT = new EnvioEstandar(origen, destino, pesoPedido, codMod, DiasEstimados);
+				RepositorioEnvios.updateEnvio(envioT);
+				System.out.println((RepositorioEnvios.updateEnvio(envioT) == true )? "Modificado correctamente":"No se ha podido modificar");
+			}
+			
+			case 2 ->{
+				System.out.print("Introduce recargo: ");
+				double recargo = sc.nextDouble();
+				Envio envioU = new EnvioUrgente(origen, destino, pesoPedido, codMod, recargo);
+				RepositorioEnvios.updateEnvio(envioU);
+				System.out.println((RepositorioEnvios.updateEnvio(envioU) == true )? "Modificado correctamente":"No se ha podido modificar");
+			}
+			
+			case 3 ->{
+				System.out.print("Introduce temperatura: ");
+				double temp = sc.nextDouble();
+				Envio envioR = new EnvioRefrigerado(origen, destino, pesoPedido, codMod, temp);
+				RepositorioEnvios.updateEnvio(envioR);
+				System.out.println((RepositorioEnvios.updateEnvio(envioR) == true )? "Modificado correctamente":"No se ha podido modificar");
+					
+			}
+		}
+		
+		
+	}
+	
+	
+	
+	public static void menuActualizarEstado() {
+		System.out.print("Introduce código: ");
+		int codMod = sc.nextInt(); sc.nextLine();
+		
+		System.out.println(""" 
+				* Introduzca Nuevo Estado * 
+				
+				1. Creado 
+				2. Enviado
+				3. Recibido
+				4. Devuelto
+				""");
+		EstadoEnvio estado = null;
+		do {
+			estado = EstadoEnvio.leerTeclado();
+		}while( estado == null );
+		
+		CentralEnvios.actualizarEstado(codMod, estado);
+		System.out.println((CentralEnvios.actualizarEstado(codMod, estado) == true )? "Estado actualizado correctamente":"No se ha podido actualizar el estado");
+		
+		
+	}
+
+}

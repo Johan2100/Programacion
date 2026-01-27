@@ -1,0 +1,36 @@
+package Explicacion.model.envios;
+
+public class EnvioFresco extends Envio{
+	
+	private double temperatura;
+
+	//CONSTRUCTORES -- 
+	public EnvioFresco(int codPedido, double pesoPedido, String origen, String destino, double temperatura) {
+		super(codPedido, pesoPedido, origen, destino);
+		this.temperatura = temperatura;
+	}
+	
+	public EnvioFresco() {
+		
+	}
+
+	
+	//GETTER AND SETTER -- 
+	public double getTemperatura() {
+		return temperatura;
+	}
+
+	public void setTemperatura(double temperatura) {
+		this.temperatura = temperatura;
+	}
+	
+	//MÉTODOS -- 
+	public double calcularCoste() {
+		
+		return 6.0+pesoPedido*2.5;
+	}
+	
+	
+	
+
+}

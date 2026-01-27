@@ -1,0 +1,39 @@
+package Empleados;
+
+public class Per_Admin extends Empleados {
+	
+	private int horasExtra;
+
+	//CONSTRUCTOR --- 
+	public Per_Admin(String nombre, String dNI, double salB, int horasExtra) {
+		super(nombre, dNI, salB);
+		this.horasExtra = horasExtra;
+	}
+	
+	//GETTER AND SETTER --- 
+	
+	public int getHorasExtra() {
+		return horasExtra;
+	}
+	public void setHorasExtra(int horasExtra) {
+		this.horasExtra = horasExtra;
+	}
+	
+	//ToString -- 
+	@Override
+	public String toString() {
+		return "Per_Admin [horasExtra=" + horasExtra + ", nombre=" + nombre + ", DNI=" + DNI + ", salB=" + salB
+				+ ", salF=" + calcularSalario() + "]";
+	}
+	
+	
+	//MÉTODOS -- 
+	public double calcularSalario() {
+		return salB + (horasExtra*15);
+	}
+
+	
+	
+	
+
+}

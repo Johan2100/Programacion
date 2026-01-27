@@ -1,0 +1,160 @@
+package Ejer1Profe.main;
+
+
+import Ejer1.model.empleado;
+import Ejer1.model.empleadoTemporal;
+import Ejer1Profe.model.departamento;
+import Ejer1Profe.model.empresa;
+import Ejer1Profe.model.gerente;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class main1 {
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        // REGISTRAR EMPRESA --
+        System.out.println("Ingresa nombre Empresa: ");
+        String nombreEmpresa = sc.nextLine();
+        System.out.println("Ingresa cantidad departamentos: ");
+        int cantidadDep = sc.nextInt();
+        departamento[] dep_empresa = new departamento[cantidadDep];
+
+        empresa empresaIn = new empresa(dep_empresa,nombreEmpresa);
+
+        // MENU DE OPCIONES --
+
+        int op;
+        do{
+            System.out.printf("""
+                    *** GESTIÓN %s ***
+                    
+                    1. Añadir departamento.
+                    2. Añadir Empleado.
+                    3. Mostrar salario total empresa
+                    4. Departamento mayor Salario
+                    0. Salir.
+                    
+                    
+                    """, nombreEmpresa);
+
+            System.out.println();
+            op = sc.nextInt();
+            sc.nextLine();
+
+            switch (op){
+                case 0 ->{
+                    System.out.println("Saliendo del programa... ");
+                    System.exit(1);
+                }
+                case 1->{
+                    System.out.print("Introduce nombre de departamento: ");
+                    String nom_Dep = sc.nextLine();
+                    departamento nDep = new departamento(nom_Dep);
+                    empresa.agregarDepartamento(nDep);
+                    System.out.println(empresaIn);
+
+                }
+                case 2 ->{
+                    System.out.print("Ingresa nombre: ");
+                    String nom_Emp = sc.nextLine();
+
+                    System.out.print("Ingresa salario: ");
+                    double salario = sc.nextDouble();
+                    sc.nextLine();
+                    System.out.println("Introducir fecha de contrato (dd/MM/yyyy): ");
+                    LocalDate fe_Contrato = LocalDate.parse(sc.nextLine(),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+                    System.out.println("""
+                            *** TIPO DE CONTRATO ***
+                            1. Normal
+                            2. Temporal
+                            3. Gerente
+                            """);
+                    int op_con = sc.nextInt();
+                    sc.nextLine();
+           
+                    int num_Dep = -1;
+
+                    switch (op_con){
+                        case 1 ->{
+                           empleado newEmpleadoN = new empleado(fe_Contrato,nom_Emp,salario);
+                            System.out.println("Registrado empleado normal... ");
+                            System.out.println();
+
+                            System.out.println("Introduce nombre del departamento: ");
+                            String nom_Dep= sc.nextLine();
+
+                            boolean encontrado = false;
+
+                            for (int i = 0; i < dep_empresa.length; i++) {
+
+                                if( dep_empresa[i] != null && dep_empresa[i].getNombreDep().equalsIgnoreCase(nom_Dep)){
+                                    num_Dep = i;
+                                    encontrado = true;
+                                }
+
+                            }
+                            if(encontrado){
+                               System.out.println("Departamento encontrado");
+                               System.out.println(dep_empresa[num_Dep].getNombreDep());
+                            }
+
+                           
+
+                        }
+                        case 2 ->{
+                            System.out.print("Introduce fecha final del contrato (dd/MM/yyyy): ");
+                            LocalDate fe_FinC = LocalDate.parse(sc.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy)"));
+                            
+                            empleado newEmpleadoT = new empleadoTemporal(fe_Contrato,nom_Emp,salario,fe_FinC);
+                            System.out.println("Registrado empleado temporal... ");
+
+
+                        }
+                        case 3 ->{
+                            System.out.println("Introduce bonus del gerente: ");
+                            double bonus = sc.nextDouble();
+                            sc.nextLine();
+                            gerente newEmpleadoG = new gerente(fe_Contrato,nom_Emp,bonus,salario);
+
+                        }
+
+
+                    }// case 2
+
+
+
+                }
+                case 3->{
+                    System.out.println("Es salario total es de: "+empresaIn.totalEmpresa()+"€");
+
+                }
+                case 4->{
+
+                    departamento mayor = dep_empresa[0];
+
+                    for (int i = 0; i < dep_empresa.length; i++) {
+                        if (mayor.totalDepartamento() < dep_empresa[i].totalDepartamento()){
+                            mayor = dep_empresa[i];
+                        }
+                    }
+                    System.out.println("El departamento con mayor salario es "+mayor.getNombreDep());
+
+                }
+            }
+
+
+
+
+        }while ( op != 0);
+
+
+
+    }
+
+    }
+
+

@@ -1,0 +1,27 @@
+
+package Empleados;
+
+
+import java.util.Scanner;
+
+public enum TipoTurnos {
+	
+	Mañana, Tarde, Noche;
+	
+	static Scanner sc = new Scanner(System.in);
+	
+    public static TipoTurnos leerTeclado(){	
+        String input = sc.nextLine();
+       TipoTurnos[] turno = values();
+        for (TipoTurnos s : turno) {
+            if (s.name().equalsIgnoreCase(input)) {
+                return s;
+            }
+        }
+       
+        return null;
+    }
+	
+	
+
+}

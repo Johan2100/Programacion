@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jdk.internal.misc.FileSystemOption"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="Empleados.Medicos"/>
+    <fullyQualifiedTypeName name="Empleados.Per_Admin"/>
+    <fullyQualifiedTypeName name="Ejer2Profe.Model.Figuras.Cuadrado"/>
+    <fullyQualifiedTypeName name="Ejer2Profe.Model.Figuras.Circulo"/>
+    <fullyQualifiedTypeName name="Ejer2Profe.Model.Manejadores.ManejadorFiguras"/>
+    <fullyQualifiedTypeName name="Ejer2Profe.Model.Figuras.FiguraGeometrica"/>
+    <fullyQualifiedTypeName name="Explicacion.model.envios.Envio"/>
+    <fullyQualifiedTypeName name="sun.text.resources.cldr.ext.FormatData_oc"/>
+    <fullyQualifiedTypeName name="modelo2profesora.EnvioUrgente"/>
+    <fullyQualifiedTypeName name="modelo2profesora.centralEnvios.RepositorioEnvio"/>
+    <fullyQualifiedTypeName name="modelo2profesora.EstadoEnvio"/>
+    <fullyQualifiedTypeName name="model2.EnvioEstandar"/>
+    <fullyQualifiedTypeName name="funciones.CentralEnvios"/>
+    <fullyQualifiedTypeName name="model2.EnvioUrgente"/>
+    <fullyQualifiedTypeName name="model2.EnvioRefrigerado"/>
+    <fullyQualifiedTypeName name="repositorio.RepositorioEnvios"/>
+</qualifiedTypeNameHistroy>

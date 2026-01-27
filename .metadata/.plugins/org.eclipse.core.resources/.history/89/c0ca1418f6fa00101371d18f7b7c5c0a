@@ -1,0 +1,8 @@
+package model1;
+
+public interface Rastreable {
+	
+	EstadoEnvio obtenerEstado();
+	void actualizarEstado(EstadoEnvio nuevoEstado);
+
+}

@@ -1,0 +1,9 @@
+package Explicacion.Interfaz;
+
+public interface Rasteables {
+	
+	String obtenerEstado();
+	
+	void actualizarEstado(String estado);
+
+}

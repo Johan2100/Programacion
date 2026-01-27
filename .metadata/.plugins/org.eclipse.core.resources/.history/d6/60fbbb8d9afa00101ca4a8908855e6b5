@@ -1,0 +1,5 @@
+package modelo2profesora.centralEnvios;
+
+public class CentralEnvio {
+
+}

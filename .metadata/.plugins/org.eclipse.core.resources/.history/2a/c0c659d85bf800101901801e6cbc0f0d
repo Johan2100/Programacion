@@ -1,0 +1,5 @@
+package Explicacion.Interfaz;
+
+public interface Asegurable {
+
+}

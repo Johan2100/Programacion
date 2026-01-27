@@ -1,0 +1,9 @@
+package Empleados;
+
+public enum TipoTurnos {
+	
+	Mañana, Tarde, Noche 
+	
+	
+
+}

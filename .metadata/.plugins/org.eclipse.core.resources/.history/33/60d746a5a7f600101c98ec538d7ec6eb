@@ -1,0 +1,79 @@
+package Ejer1Profe.model;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+public class empresa {
+    static int codDep=0;
+    private String nombreEmpresa;
+    private static departamento[] departamentos;
+
+    // CONSTRUCTOR ---
+    public empresa(departamento[] departamentos, String nombreEmpresa) {
+        this.departamentos = departamentos;
+        this.nombreEmpresa = nombreEmpresa;
+    }
+
+    //GETTER AND SETTER ----
+    public departamento[] getDepartamentos() {
+        return departamentos;
+    }
+
+    public void setDepartamentos(departamento[] departamentos) {
+        this.departamentos = departamentos;
+    }
+
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+    }
+
+    //ToString
+    @Override
+    public String toString() {
+        return "empresa{" +
+                "departamentos=" + Arrays.toString(departamentos) +
+                ", nombreEmpresa='" + nombreEmpresa + '\'' +
+                '}';
+    }
+
+
+    //MÉTODOS --
+    public static void agregarDepartamento(departamento newDepartamento){
+        departamentos[codDep++] = newDepartamento; // Arrays de departamentos
+        System.out.println("Departamento correctamente añadido");
+    }
+
+    public double totalEmpresa(){
+        double salarioTotalEmpresa = 0;
+
+
+        for (int i = 0; i < departamentos.length; i++) {
+            salarioTotalEmpresa
+                    += departamentos[i].totalDepartamento();
+        }
+
+        System.out.println("Se ha sumado todos los salarios del departamento");
+        return salarioTotalEmpresa;
+    }
+
+
+
+
+    // --------
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        empresa empresa = (empresa) o;
+        return codDep == empresa.codDep;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(codDep);
+    }
+}

@@ -1,0 +1,16 @@
+package Ejer3.model.libros;
+
+public class LibroTexto extends Libro{
+
+	private String materia;
+
+	public LibroTexto(String titulo, String nombreAutor, int numPaginas, String materia) {
+		super(titulo, nombreAutor, numPaginas);
+		this.materia = materia;
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,122 @@
+package modelo2profesora.centralEnvios;
+
+import modelo2profesora.Envio;
+
+public class CentralEnvio {
+	
+	private static Envio[] envios = new Envio[0];
+
+	//CONSTRUCTOR -- 
+	
+	public CentralEnvio(Envio[] envios) {
+		super();
+		this.envios = envios;
+	}
+
+	
+	//GETTER AND SETTER -- 
+	
+	public Envio[] getEnvios() {
+		return envios;
+	}
+
+	public void setEnvios(Envio[] envios) {
+		this.envios = envios;
+	}
+
+	
+	//MÉTODOS -- 
+	
+	public static void registrarEnvio(Envio env) {
+		
+		Envio[] aux = new Envio[envios.length+1];
+		
+		for (int i = 0; i < envios.length; i++) {
+			aux[i] = envios[i];
+		} 
+		
+		aux[aux.length-1] = env;
+		envios = aux;
+	}
+	/*
+	 * Método Propio 
+	public static  void eliminarEnvio(int codigo) {
+		
+		int pos = -1;
+		Envio[] aux = new Envio[envios.length-1];
+		boolean encontrado = false;
+		for (int i = 0; i < envios.length && !encontrado; i++) {
+			
+			if(envios[i].getCodPedido() == codigo) {
+				pos = i;
+				encontrado = true;
+				
+			}
+			
+		}
+		if( pos != -1) {
+			for (int i = pos; i < envios.length-1; i++) {
+				envios[i] = envios[i+1];
+			}
+			System.out.println("Modificando los envios...");
+			
+		}
+		
+		if(encontrado) {
+			
+			aux = envios; //Establecer el array más pequeño 
+			envios = aux; // Envio se queda más pequeño. 
+			System.out.println("Se ha eliminado correctamente...");
+			
+		}else
+			System.out.println("No se ha encontrado el paquete");
+		
+	}
+	*/
+	
+	public static void deleteEnvio(int codigo) {
+		Envio aux[] = new Envio[envios.length-1];
+		int pos = -1;
+		
+		for (int i = 0; i < envios.length; i++) {
+			if(envios[i].getCodPedido() == codigo)
+				pos = i;
+		}
+		
+		boolean encontrado = false;
+		for (int i = 0, j=0; j < aux.length; i++) {
+			
+			if(envios[i].getCodPedido() != codigo) {
+				aux[j++] = envios[i];
+				encontrado = true;
+			}
+			
+				
+		}
+		
+		if(encontrado) {
+			envios = aux;
+			System.out.println("Modificando la base de envios....");
+			System.out.println("Pedido Eliminado correctamente. ");
+			
+		}else {
+			
+			
+		}
+		
+		
+	}
+	
+	public static Envio findEnvioByCodigo(int codigo) {
+		
+		for(Envio e : envios) {
+			if(e.getCodPedido() == codigo) {
+				return e;
+			}
+		}
+		
+		return null;
+	}
+	
+	
+}

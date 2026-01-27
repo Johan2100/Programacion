@@ -1,0 +1,58 @@
+package Ejer2Profe.Model.Manejadores;
+
+import Ejer2Profe.Model.Figuras.FiguraGeometrica;
+
+public class ManejadorFiguras {
+
+    protected FiguraGeometrica[] figuras = new FiguraGeometrica[0];
+    
+    //CONSTRUCTOR --- 
+
+    public ManejadorFiguras(FiguraGeometrica[] figuras) {
+		super();
+		this.figuras = figuras;
+	}
+
+	
+
+    //GETTER AND SETTER ---
+    public FiguraGeometrica[] getFiguras() {
+        return figuras;
+    }
+
+    public void setFiguras(FiguraGeometrica[] figuras) {
+        this.figuras = figuras;
+    }
+    
+    
+    
+    //toString --
+    
+    
+    
+    //MÉTODOS --- 
+    
+    public void addFig(FiguraGeometrica fig) {
+    	
+    	FiguraGeometrica[] aux = new FiguraGeometrica[figuras.length+1];
+    	
+    for (int i = 0; i < figuras.length; i++) {
+		aux[i] = figuras[i];
+	}
+    
+    aux[aux.length-1] = fig;
+    figuras = aux;
+    	
+    }
+    
+    
+    public double perimetroTotal(){
+        double suma = 0;
+        for (FiguraGeometrica fig : figuras) {
+            suma += fig.calcularPerimetro(); // Ha esto lo llamamos polimorfísmo
+        }
+
+        return suma;
+    }
+}
+

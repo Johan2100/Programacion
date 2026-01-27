@@ -1,0 +1,63 @@
+package Explicacion.model.envios;
+
+import Explicacion.Interfaz.*;
+public class EnvioUrgente extends Envio implements Asegurable,Rasteables  {
+	
+	private double recargo;
+	private EstadoEnvio estado = EstadoEnvio.CREADO; 
+
+	//CONSTRUCTORES -- 
+	
+	public EnvioUrgente(int codPedido, double pesoPedido, String origen, String destino, double recargo) {
+		super(codPedido, pesoPedido, origen, destino);
+		this.recargo = recargo;
+	}
+
+	public EnvioUrgente() {
+		
+	}
+	
+	//GETTER AND SETTER -- 
+
+	public double getRecargo() {
+		return recargo;
+	}
+
+	public void setRecargo(double recargo) {
+		this.recargo = recargo;
+	}
+
+	
+	//MÉTODOS --
+	
+	public double calcularCoste() {
+		return 5 + 2*pesoPedido + recargo;
+	}
+
+	@Override
+	public String obtenerEstado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String actualizarEstado(String nuevoEstado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double calcularCosteSeguro() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,5 @@
+package Explicacion.model.envios;
+
+public enum EstadoEnvio {
+
+}

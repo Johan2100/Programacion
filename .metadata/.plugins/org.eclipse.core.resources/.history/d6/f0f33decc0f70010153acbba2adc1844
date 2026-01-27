@@ -1,0 +1,26 @@
+package Ejer2Profe.Model.Manejadores;
+
+import Ejer2Profe.Model.Figuras.FiguraGeometrica;
+
+public class ManejadorFiguras {
+
+    protected FiguraGeometrica[] figuras = new FiguraGeometrica[0];
+
+    public double perimetroTotal(){
+        double suma = 0;
+        for (FiguraGeometrica fig : figuras) {
+            suma += fig.calcularPerimetro(); // Ha esto lo llamamos polimorfísmo
+        }
+
+        return suma;
+    }
+
+    //GETTER AND SETTER ---
+    public FiguraGeometrica[] getFiguras() {
+        return figuras;
+    }
+
+    public void setFiguras(FiguraGeometrica[] figuras) {
+        this.figuras = figuras;
+    }
+}

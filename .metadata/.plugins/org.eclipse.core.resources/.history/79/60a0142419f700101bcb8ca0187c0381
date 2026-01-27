@@ -1,0 +1,44 @@
+package Main;
+
+import java.util.Scanner;
+
+import Empleados.Empleados;
+import Hospital.Hospital;
+
+
+
+public class MainHospital {
+	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		
+		// REGISTRAR HOSPITAL  --
+        System.out.println("Ingresa nombre Hospital: ");
+        String nombreHospital = sc.nextLine();
+        Empleados[] trabajadores;
+        
+        Hospital hospital = new Hospital(nombreHospital,trabajadores);
+        
+        // MENU DE OPCIONES --
+
+        int op;
+        do{
+            System.out.printf("""
+                    *** GESTIÓN %s ***
+                    
+                    1. Añadir Empleado.
+                    2. Mostrar datos Empleado.
+                    0. Salir.
+                    
+                    
+                    """, nombreHospital);
+
+            System.out.println();
+            op = sc.nextInt();
+            sc.nextLine();
+            
+        }while(op != 0);
+	
+	}		
+
+}

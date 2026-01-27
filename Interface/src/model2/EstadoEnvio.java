@@ -1,0 +1,26 @@
+package model2;
+
+import java.util.Scanner;
+
+public enum EstadoEnvio {
+
+	CREADO, ENVIADO, RECIBIDO, DEVUELTO;
+	
+	 static Scanner sc = new Scanner(System.in);
+	 
+	public static EstadoEnvio leerTeclado() {
+		String input = sc.nextLine();
+		EstadoEnvio[] estado = values();
+		
+		for (EstadoEnvio s : estado) {
+			
+			if(s.name().equalsIgnoreCase(input)) {
+				return s;
+			}
+			
+		}
+		
+		return null;
+	}
+
+}

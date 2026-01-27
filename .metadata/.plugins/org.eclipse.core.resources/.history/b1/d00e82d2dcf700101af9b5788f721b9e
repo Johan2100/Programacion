@@ -1,0 +1,28 @@
+package Ejer3.model.libros;
+
+public class LibroNovela extends Libro {
+	
+	private String genero;
+
+	public LibroNovela(String titulo, String nombreAutor, int numPaginas, String genero) {
+		super(titulo, nombreAutor, numPaginas);
+		this.genero = genero;
+	}
+
+	//GETTER AND SETTER -- 
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+	
+	
+	
+
+	
+	
+	
+
+}

@@ -1,0 +1,63 @@
+package modelo2profesora.funciones;
+
+import modelo2profesora.*;
+import modelo2profesora.centralEnvios.RepositorioEnvio;
+import modelo2profesora.EnvioUrgente;
+import modelo2profesora.EnvioFresco;
+
+
+public class CentralEnviosF {
+	
+	public void registrarEnvio(Envio envio) {
+		
+		RepositorioEnvio.registrarEnvio(envio);
+		
+	}
+	
+	public void listarEnvios() {
+		
+		for(Envio e : RepositorioEnvio.findAll())
+			System.out.println(e);
+	}
+	
+	public double costeTotal() {
+		double suma = 0;
+		
+		for(Envio s : RepositorioEnvio.findAll())
+			suma += s.calcularCoste();
+		
+		return suma;
+	}
+	
+	public double costeTotalSeguros() {
+		double suma = 0;
+		
+		for(Envio e : RepositorioEnvio.findAll()) {
+			if(e instanceof EnvioUrgente)
+				suma += ((EnvioUrgente)e).calcularCosteSeguro();
+			
+			if(e instanceof EnvioFresco)
+				suma +=((EnvioFresco)e).calcularCosteSeguro();
+		}
+		
+		return suma;
+		
+	}
+	
+	public void updateEstadoEnvio(EstadoEnvio estado, int codigo) {
+		
+		int posA = -1;
+		boolean update = false;
+		for (int i = 0; i < RepositorioEnvio.findAll().length; i++) {
+			if( RepositorioEnvio.findAll()[i].getCodPedido() == codigo)
+				posA = i;
+		}
+		
+//		if(posA != -1) {
+//			RepositorioEnvio.findAll()[posA].
+//			
+//		}
+		
+	}
+
+}

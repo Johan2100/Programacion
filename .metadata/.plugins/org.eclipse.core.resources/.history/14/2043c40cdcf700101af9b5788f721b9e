@@ -1,0 +1,58 @@
+package Ejer3.model.libros;
+
+public class Libro {
+
+	private String titulo, nombreAutor;
+	int numPaginas;
+	
+	
+	//CONSTRUCTOR --- 
+	public Libro(String titulo, String nombreAutor, int numPaginas) {
+		this.titulo = titulo;
+		this.nombreAutor = nombreAutor;
+		this.numPaginas = numPaginas;
+	}
+
+
+	// GETTER AND SETTER --- 
+	public String getTitulo() {
+		return titulo;
+	}
+
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+
+	public String getNombreAutor() {
+		return nombreAutor;
+	}
+
+
+	public void setNombreAutor(String nombreAutor) {
+		this.nombreAutor = nombreAutor;
+	}
+
+
+	public int getNumPaginas() {
+		return numPaginas;
+	}
+
+
+	public void setNumPaginas(int numPaginas) {
+		this.numPaginas = numPaginas;
+	}
+
+ 
+	//ToString -- 
+	@Override
+	public String toString() {
+		return "Libro [titulo=" + titulo + ", nombreAutor=" + nombreAutor + ", numPaginas=" + numPaginas + "]";
+	}
+	
+	
+	
+	
+
+}

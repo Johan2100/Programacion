@@ -1,0 +1,139 @@
+package mainEnvios;
+
+import java.util.Scanner;
+
+public class MainEnvio {
+	static Scanner sc = new Scanner(System.in);
+	private static int code = 0;
+	
+	public static void main(String[] args) {
+		
+		
+		int op;
+		do {
+			System.out.println("""
+					*** GESTIÓN ENVIOS ***
+
+					1. Gestion de envios
+					2. Coste Total de Envios
+					3. Coste Total de Seguros
+					4. Actualización del Estado
+					5. Listado Envios
+					0. Salir
+
+
+					""");
+
+			System.out.println();
+			op = sc.nextInt();
+			sc.nextLine();
+
+			switch (op) {
+			case 1 -> {
+				subMenu();
+
+			}
+			case 2 -> {
+
+			}
+			case 3->{
+				
+			}
+			case 4 ->{
+				
+			}
+
+			case 0 -> {
+				System.out.println("Saliendo...");
+			}
+
+			default -> System.out.println("Opción no válida");
+
+			}
+
+		} while (op != 0);
+		
+		
+		
+		
+	}
+	
+	
+	public static void subMenu() {
+		
+		int op;
+		do {
+			System.out.println("""
+					*** GESTIÓN ENVIO ***
+
+					1. Añadir Envio
+					2. Eliminar Envio
+					3. Modificar Envio 
+					0. Volver.
+
+
+					""");
+
+			System.out.println();
+			op = sc.nextInt();
+			sc.nextLine();
+
+			switch (op) {
+			case 1 -> {
+				System.out.println("Introduce el origen:  ");
+				String origen = sc.nextLine();
+				
+				System.out.println("Introduce el destino: ");
+				String destino = sc.nextLine();
+				
+				System.out.println("Introduce el peso: ");
+				double pesoPedido = sc.nextDouble();
+				
+				System.out.println("""
+						-- TIPO DE ENVIO -- 
+						
+						1. Estandar
+						2. Refrigerado
+						3. Urgente 
+						
+						""");
+				int opT = sc.nextInt(); sc.nextLine();
+				
+				switch(opT) {
+					case 1 -> {
+						int DiasEstimados = 
+						System.out.println();
+	
+					}
+					case 2 -> {
+	
+					}
+					case 3->{
+						
+					}
+				
+				}
+				
+				
+
+			}
+			case 2 -> {
+
+			}
+			case 3 ->{
+				
+			}
+
+			case 0 -> {
+				System.out.println("Saliendo...");
+			}
+
+			default -> System.out.println("Opción no válida");
+
+			}
+
+		} while (op != 0);
+		
+	}
+
+}

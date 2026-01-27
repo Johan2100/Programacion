@@ -1,0 +1,72 @@
+package Ejer1Profe.model;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class departamento {
+    private String nombreDep;
+    private empleado[] empleados = new empleado[0];
+    private empleado director;
+    int numEm = 0;
+
+    static Scanner sc = new Scanner(System.in);
+
+    //CONSTRUCTOR ---
+    public departamento(String nombreDep) {
+        this.nombreDep = nombreDep;
+    }
+
+    //GETTER AND SETTER ---
+
+    public empleado[] getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(empleado[] empleados) {
+        this.empleados = empleados;
+    }
+
+    public String getNombreDep() {
+        return nombreDep;
+    }
+
+    public void setNombreDep(String nombreDep) {
+        this.nombreDep = nombreDep;
+    }
+
+    //TOSTRING ---
+    @Override
+    public String toString() {
+        return "departamento{" +
+                "empleados=" + Arrays.toString(empleados) +
+                ", nombreDep='" + nombreDep + '\'' +
+                '}';
+    }
+
+    //MÉTODOS ---
+
+    public double totalDepartamento(){
+        double salarioTotal = 0;
+
+
+        for (int i = 0; i < empleados.length; i++) {
+            salarioTotal += empleados[i].getSalario();
+        }
+        System.out.println("Se ha sumado todos los salarios del departamento");
+        return salarioTotal;
+    }
+
+    public void agregarEmpleado(empleado emp){
+
+        empleado[] aux = new empleado[empleados.length+1];
+
+        for (int i = 0; i < empleados.length; i++) {
+            aux[i] = empleados [i];
+
+        }
+        aux[aux.length-1] = emp;
+        empleados = aux;
+
+    }
+
+}

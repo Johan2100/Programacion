@@ -1,0 +1,76 @@
+package modelo2profesora;
+
+import Explicacion.Interfaz.*;
+import Explicacion.model.envios.EstadoEnvio;
+public class EnvioUrgente extends EnvioRasteable implements Asegurable{
+	
+	private double recargo;
+	
+
+	//CONSTRUCTORES -- 
+	
+	public EnvioUrgente(int codPedido, double pesoPedido, String origen, String destino, EstadoEnvio estado,
+			double recargo) {
+		super(codPedido, pesoPedido, origen, destino, estado);
+		this.recargo = recargo;
+	}
+
+	public EnvioUrgente() {
+		
+	}
+	
+
+	//GETTER AND SETTER -- 
+
+	public double getRecargo() {
+		return recargo;
+	}
+
+	public void setRecargo(double recargo) {
+		this.recargo = recargo;
+	}
+
+	
+	//MÉTODOS --
+	
+	public double calcularCoste() {
+		return 5 + 2*pesoPedido + recargo;
+	}
+
+	
+
+
+	@Override
+	public double calcularCosteSeguro() {
+		
+		return 1.5+pesoPedido*0.8;
+	}
+
+
+
+
+	@Override
+	public EstadoEnvio obtenerEstado() {
+		
+		return estado;
+	}
+
+
+
+
+	@Override
+	public void actualizarEstado(EstadoEnvio estado) {
+		this.estado = estado;		
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

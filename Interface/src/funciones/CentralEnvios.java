@@ -1,0 +1,67 @@
+package funciones;
+
+import model2.Envio;
+import model2.EnvioRastreable;
+import model2.EnvioRefrigerado;
+import model2.EnvioUrgente;
+import model2.EstadoEnvio;
+import repositorio.RepositorioEnvios;
+
+public class CentralEnvios {
+	
+
+	public static void registrarEnvio(Envio envio) {
+
+		RepositorioEnvios.insetEnvio(envio);
+		System.out.println("Envio agregado correctamente");
+	}
+
+	public static void listarEnvios() {
+		for (Envio e : RepositorioEnvios.findAll()) {
+			System.out.println(e);
+		}
+	}
+
+	public static double costeTotal() {
+		double suma = 0;
+
+		for (Envio e : RepositorioEnvios.findAll()) {
+			suma += e.calcularCoste();
+		}
+		return suma;
+	}
+
+	public static double costeTotalSeguros() {
+		double suma = 0;
+		for (Envio e : RepositorioEnvios.findAll()) {
+			if (e instanceof EnvioUrgente) {
+				suma += ((EnvioUrgente) e).calcuralCosteSeguro();
+			}
+			if (e instanceof EnvioRefrigerado) {
+				suma += ((EnvioRefrigerado) e).calcuralCosteSeguro();
+
+			}
+		}
+		return suma;
+	}
+
+	public static boolean actualizarEstado(int codenvio, EstadoEnvio nuevoEstado) {
+
+		int posA = -1;
+		boolean actualizar = false;
+
+		for (int i = 0; i < RepositorioEnvios.findAll().length; i++) {
+			if (RepositorioEnvios.findAll()[i].getCodigo() == codenvio) {
+				posA = i;
+			}
+			
+		}
+		if (posA != -1 && RepositorioEnvios.findAll()[posA] instanceof EnvioRastreable) {
+			((EnvioRastreable) RepositorioEnvios.findAll()[posA]).actualizarEstado(nuevoEstado);
+			actualizar = true;
+		}
+
+		return actualizar;
+	}
+
+}
