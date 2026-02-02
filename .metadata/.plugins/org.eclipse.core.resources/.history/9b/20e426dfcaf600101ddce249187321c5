@@ -1,5 +1,0 @@
-package Empleados;
-
-public class Per_Admin extends Empleados {
-
-}

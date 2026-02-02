@@ -1,6 +1,6 @@
 package Ejercicio3;
 
-import java.util.Random;
+
 
 public class depuracion3 {
 	

@@ -18,4 +18,5 @@
     <fullyQualifiedTypeName name="model2.EnvioUrgente"/>
     <fullyQualifiedTypeName name="model2.EnvioRefrigerado"/>
     <fullyQualifiedTypeName name="repositorio.RepositorioEnvios"/>
+    <fullyQualifiedTypeName name="Ejer3.model.manejador.Biblioteca"/>
 </qualifiedTypeNameHistroy>

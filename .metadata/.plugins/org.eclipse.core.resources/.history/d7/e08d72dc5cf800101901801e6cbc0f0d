@@ -1,9 +1,0 @@
-package Explicacion.Interfaz;
-
-public interface Rasteables {
-	
-	String obtenerEstado();
-	
-	String actualizarEstado(String nuevoEstado);
-
-}
