@@ -19,4 +19,6 @@
     <fullyQualifiedTypeName name="model2.EnvioRefrigerado"/>
     <fullyQualifiedTypeName name="repositorio.RepositorioEnvios"/>
     <fullyQualifiedTypeName name="Ejer3.model.manejador.Biblioteca"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.functions.FuncContains"/>
+    <fullyQualifiedTypeName name="linkedList.linkedlist.MyLinkedList"/>
 </qualifiedTypeNameHistroy>

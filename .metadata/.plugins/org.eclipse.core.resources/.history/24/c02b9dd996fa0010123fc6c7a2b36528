@@ -1,9 +1,0 @@
-package modelo2profesora;
-
-import Explicacion.model.envios.Envio;
-import Explicacion.model.envios.EstadoEnvio;
-
-public abstract class EnvioRasteable extends Envio {
-	protected EstadoEnvio estado = EstadoEnvio.CREADO;
-
-}

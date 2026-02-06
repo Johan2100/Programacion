@@ -56,7 +56,7 @@ public class MyLinkedList<T> {
 		return cont;
 	}
 	
-	public void addFirst(T dato) {
+	public void add(T dato) {
 		Node<T> nodo = new Node<T>(dato);
 		nodo.next = start;
 		start = nodo;
@@ -76,11 +76,18 @@ public class MyLinkedList<T> {
 	
 	
 	public void removeByPosition(int pos) {
-		Node<T> aux = start;
-		for (int i = 0; i < pos-1; i++) {
-			aux = aux.next;
+		if (pos == 0) {
+			start = start.next;
+			
+		}else {
+				Node<T> aux = start;
+				for (int i = 0; i < (pos)-1; i++) {
+					aux = aux.next;
+				}
+				aux.next = aux.next.next;
+				
+			
 		}
-		aux.next = aux.next.next;
 	}
 	
 	

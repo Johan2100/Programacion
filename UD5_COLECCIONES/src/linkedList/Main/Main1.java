@@ -8,9 +8,9 @@ public class Main1 {
 		
 	MyLinkedList<String> cadenas = new MyLinkedList<>();
 	
-	cadenas.addFirst("Hola");
-	cadenas.addFirst("Patimicola");
-	cadenas.addFirst("MIMI");
+	cadenas.add("Hola");
+	cadenas.add("Patimicola");
+	cadenas.add("MIMI");
 	
 	cadenas.addLast("Ultimo");
 	cadenas.addLast("Leche");
@@ -19,7 +19,7 @@ public class Main1 {
 		System.out.println(cadenas.getByPosition(i));
 	}
 	
-	cadenas.removeByPosition(0);
+	cadenas.removeByPosition(6);
 	System.out.println("-----------------");
 	for (int i = 0; i < cadenas.size(); i++) {
 		System.out.println(cadenas.getByPosition(i));

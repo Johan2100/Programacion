@@ -1,7 +1,0 @@
-package model2;
-
-public enum EstadoEnvio {
-
-	CREADO, ENVIADO, RECIBIDO, DEVUELTO;
-
-}

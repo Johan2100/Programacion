@@ -1,7 +1,0 @@
-package modelo2profesora;
-
-public enum EstadoEnvio {
-	
-	CREADO, ENVIADO, RECIBIDO, DEVUELTO
-
-}
