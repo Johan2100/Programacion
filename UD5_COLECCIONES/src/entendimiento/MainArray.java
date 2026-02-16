@@ -1,4 +1,4 @@
-package prueba;
+package entendimiento;
 
 public class MainArray {
 	

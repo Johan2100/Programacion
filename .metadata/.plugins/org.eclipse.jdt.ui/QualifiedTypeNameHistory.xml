@@ -21,4 +21,15 @@
     <fullyQualifiedTypeName name="Ejer3.model.manejador.Biblioteca"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.functions.FuncContains"/>
     <fullyQualifiedTypeName name="linkedList.linkedlist.MyLinkedList"/>
+    <fullyQualifiedTypeName name="More.ejercicios.ejer2Pila.model.Profesor"/>
+    <fullyQualifiedTypeName name="More.ejercicios.ejer2Pila.main.Instituto"/>
+    <fullyQualifiedTypeName name="entendimiento.Alumno"/>
+    <fullyQualifiedTypeName name="More.ejercicios.ejer2Pila.model.Alumno"/>
+    <fullyQualifiedTypeName name="More.ejercicios.ejer2Pila.model.CriterioNotaDescendiente"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="miniAplicaciones.ejer1.model.Estudiante"/>
+    <fullyQualifiedTypeName name="miniAplicaciones.ejer2.model.Libro"/>
+    <fullyQualifiedTypeName name="miniAplicaciones.ejer3.model.Empleado"/>
+    <fullyQualifiedTypeName name="miniAplicaciones.ejer3.model.Diseñador"/>
+    <fullyQualifiedTypeName name="miniAplicaciones.ejer3.model.Programador"/>
 </qualifiedTypeNameHistroy>

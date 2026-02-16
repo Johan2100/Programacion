@@ -1,4 +1,4 @@
-package prueba;
+package entendimiento;
 
 public class Alumno {
 	private String nombre;
