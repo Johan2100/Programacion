@@ -22,7 +22,7 @@ public class Empresa {
 					
 					*** GESTIÓN EMPRESA  ***
 
-					1. Añadir Empleado
+					1. Añadir Empleado 
 					2. Eliminar Empleado 
 					3. Mostrar Empleados 
 					0. Salir.

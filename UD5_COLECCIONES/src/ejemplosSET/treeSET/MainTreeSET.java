@@ -26,7 +26,7 @@ public class MainTreeSET {
 	List<TreeAlumnoSET> listaAlumnos = new LinkedList<>();
 	listaAlumnos.addAll(alumnos);
 	
-	listaAlumnos.sort(null);
+	listaAlumnos.sort(new ComparadorNif());
 	System.out.println("Listado ordenado Lista: ");
 	for (TreeAlumnoSET a : listaAlumnos) {
 		System.out.println(a);
