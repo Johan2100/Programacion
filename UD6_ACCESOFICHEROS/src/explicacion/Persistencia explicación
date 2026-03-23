@@ -1,0 +1,80 @@
+La persistencia es una herramienta que disponemos en java para que nos despreocupemos de los datos introducidos al programa. 
+Al iniciar un programa sin persistencia nosotros introduciamos los valores deseados para dicha ejecución pero tras la finalización
+de dicho programa se borraran todos lo datos/valores introducidos, lo que da un programa no persistente. 
+
+Gracias a la persistencia las aplicaciones se abre grandes posibilidades para poder escalar nuestros programas permitiendo el guardado de datos.
+Dichas conexiones a bases de datos lo veremos en Segundo de DAM en accesos a bases de datos.
+
+En primero es un inicio a un programa de persistencia de poca escala como un concesionario, una biblioteca hecha a mano. En vez de guardarlas en bases de datos,
+hacerlos en ficheros.  
+
+
+
+*** ACCESO A FICHEROS ***
+
+Clases basicas para poder acceder a los ficher con -> java.io o java.nio (más actualizada).
+Para poder leer o escribir en un fichero, java introduce lo que llamamos canales o tuberias, donde se van enviando los bytes leyendo así los datos. 
+En java.io hay dos clases que pueden leerlo "FileInputStream" (Lee los bytes (0 y 1)) y "FileReader" (Este te va sacando y leyendo los char)(Fichero a variable), 
+"FileOutputStream" (Escribir bytes) (Variable a fichero) y Filewriter (Escribir caracteres)( Variable a fichero)
+
+ -- ESCRITURA
+System.out.println("En qué fichero quiere guardar ? ");
+		String nomFich = sc.nextLine();
+		
+		FileWriter fw = new FileWriter(nomFich);
+
+ La ruta que use el proyecto como raíz osea usará el directorio del fichero ( así lo entendí), no es recomendable usar rutas absolutas debido a que tendrá error al
+ pasar la aplicación a otro equipo. Por tanto se quedará en el proyecto de JAVA. 
+ 
+ Al instanciar un nuevo fichero tenemos que hacer un try/catch o hacer un throws en el método, tambíen podemos añadir la condición si queremos sobreescribir o no 
+ el fichero por ejemplo: 
+	 En caso de true -> No sobreescribe el fichero 
+	 En caso de false -> Si sobreescribe el fichero
+ 
+ 	FileWriter fw = new FileWriter(nomFich+".txt",false);
+ 	
+Para que se te quede guardado tienes que cerrar el FileWriter con 
+	fw.close;
+	
+
+-- LECTURA 
+Basicamente es como un WriterFile, pero basado en la lecutura. Suele ser más complicada. Si el fichero no exite, 
+te va a lanzar una Excepcion, no te la va crear como el WriteFile.
+Para ello podemos usar un try/catch o podemos usar el método de la Teacher : 
+
+	File file = new File(nomFich+".txt");
+		if(!file.exists())
+			return;
+	
+	Si el fichero no existe se para el programa. Y al saber que no me va a dar excepcion hacemos un throw mandando la expcecion pa arriba
+	
+Esta variable lo que hace es devolverte la variable -1, avisando cuando se ha terminado. Si c = -1, significa que ya ha terminado de leer el fichero. 
+ 	int c = fr.read();
+
+Cada read(), se va leyendo cada char del archivo y se deja posicionado en el siguiente. Por ejemplo en mi archivo pone el nombre Johan, en cada read() me va
+a leer un caracter distinto, 1º = J, 2º = o, 3º = h. Así sucesivamente. Cuando ya no tiene más caracteres que leer o lo que se resume que ya no hay más texto el
+read() se detendrá. 
+
+int c;
+		//El fr.read() devuelve -1 cuando ya ha terminado de leer el archivo. 
+		while( (c = fr.read()) != -1) {
+			s += (char)c;
+		}
+		
+		
+---- 16/03 -----
+Para poder leer String en vez de caracteres tenemos que añadir una pequeña clase a FileReader, siendo más práctico a la hora de leer un archivo de texto. 
+Es posible usando el : 
+		BufferedReader buffer = new BufferedReader("Nuestro objeto FileReader");
+		String lineaTxt: buffer.readLine(); // Este metodo te va leyendo de linea en linea, basicamente de salto de linea a salto de linea 
+		
+Para poder leer un texto usamos un bucle 
+	
+	while(lineaTxt != null){
+		Hacer lo que sea con la línea;
+		nombres.add(lineaTxt+"\n") // Tenemos que añadir el salto de linea porque te lo lee, pero no te lo separa. 
+	}
+Hay que también cerrar el buffer. 
+
+Tambien para tener un formato en el fichero de texto podemos hacer una estructura XML o JSON para facilitar la lectura de datos.
+Para poder dar un minimo de estilo podemos usar un csv dandole un poco de estructura al archivo. 
