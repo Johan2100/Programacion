@@ -4,14 +4,20 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Reserva implements Serializable{
+	
+	private static final long serialVersionUID = -1906181065781177851L;
 	private long codReserva;
 	private String cliente;
 	private LocalDate fecha;
 	private Destino destino;
 	
 	
-	
-	
+	public Reserva(long codReserva, String cliente, LocalDate fecha, Destino destino) {
+		this.codReserva = codReserva;
+		this.cliente = cliente;
+		this.fecha = fecha;
+		this.destino = destino;
+	}
 	public long getCodReserva() {
 		return codReserva;
 	}
@@ -35,6 +41,11 @@ public class Reserva implements Serializable{
 	}
 	public void setDestino(Destino destino) {
 		this.destino = destino;
+	}
+	@Override
+	public String toString() {
+		return "Reserva [codReserva=" + codReserva + ", cliente=" + cliente + ", fecha=" + fecha + ", destino="
+				+ destino + "]";
 	}
 	
 	

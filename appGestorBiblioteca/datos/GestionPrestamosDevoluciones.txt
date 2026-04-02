@@ -1,0 +1,4 @@
+Fecha: 2026-03-20, cantidad: 3, título: One Piece, Tipo movimiento: préstamo Fecha: 2027-03-21, cantidad: 3, título: One Piece, Tipo movimiento: devolución Fecha: 2025-05-20, cantidad: 6, título: Isma's Adventures, Tipo movimiento: préstamo 
+ Fecha: 2025-05-20, cantidad: 4, título: Isma's Adventures, Tipo movimiento: préstamo 
+ Fecha: 2026-08-21, cantidad: 6, título: Isma's Adventures, Tipo movimiento: devolución 
+ 

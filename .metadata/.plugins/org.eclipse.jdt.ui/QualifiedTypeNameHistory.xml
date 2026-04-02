@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="Ejer2Profe.Model.Figuras.FiguraGeometrica"/>
-    <fullyQualifiedTypeName name="Explicacion.model.envios.Envio"/>
-    <fullyQualifiedTypeName name="sun.text.resources.cldr.ext.FormatData_oc"/>
-    <fullyQualifiedTypeName name="modelo2profesora.EnvioUrgente"/>
-    <fullyQualifiedTypeName name="modelo2profesora.centralEnvios.RepositorioEnvio"/>
-    <fullyQualifiedTypeName name="modelo2profesora.EstadoEnvio"/>
-    <fullyQualifiedTypeName name="model2.EnvioEstandar"/>
-    <fullyQualifiedTypeName name="funciones.CentralEnvios"/>
-    <fullyQualifiedTypeName name="model2.EnvioUrgente"/>
-    <fullyQualifiedTypeName name="model2.EnvioRefrigerado"/>
-    <fullyQualifiedTypeName name="repositorio.RepositorioEnvios"/>
-    <fullyQualifiedTypeName name="Ejer3.model.manejador.Biblioteca"/>
-    <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.functions.FuncContains"/>
-    <fullyQualifiedTypeName name="linkedList.linkedlist.MyLinkedList"/>
-    <fullyQualifiedTypeName name="More.ejercicios.ejer2Pila.model.Profesor"/>
     <fullyQualifiedTypeName name="More.ejercicios.ejer2Pila.main.Instituto"/>
     <fullyQualifiedTypeName name="entendimiento.Alumno"/>
     <fullyQualifiedTypeName name="More.ejercicios.ejer2Pila.model.Alumno"/>
@@ -33,7 +18,6 @@
     <fullyQualifiedTypeName name="miniAplicaciones.ejer1Examen23_25.model.clases.Elfo"/>
     <fullyQualifiedTypeName name="miniAplicaciones.ejer1Examen23_25.model.clases.Unicornio"/>
     <fullyQualifiedTypeName name="miniAplicaciones.ejer1Examen23_25.model.clases.CriaturaMistica"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="examenesPractica.ejer1Examen24_25.model.interfaz.Aprendiz"/>
     <fullyQualifiedTypeName name="examenesPractica.ejer1Examen24_25.model.MagoEstudiante"/>
     <fullyQualifiedTypeName name="examenesPractica.ejer1Examen24_25.model.MagoElemental"/>
@@ -41,7 +25,6 @@
     <fullyQualifiedTypeName name="java.lang.classfile.instruction.SwitchCase"/>
     <fullyQualifiedTypeName name="examenesPractica.ejerBaraja.main.MainJuego"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="examenesPractica.ejerEmpresa.model.Factura"/>
     <fullyQualifiedTypeName name="examenesPractica.ejerEmpresa.model.GastoEmpresa"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.util.Iterators"/>
@@ -54,10 +37,27 @@
     <fullyQualifiedTypeName name="ejerciciosMAP.ejer8.mainB.VotoNoValidoException"/>
     <fullyQualifiedTypeName name="JUNIT.calculadora.Calculadora"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.nio.Buffer"/>
-    <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.generic.ObjectType"/>
+    <fullyQualifiedTypeName name="model.Destino"/>
+    <fullyQualifiedTypeName name="dao.ObjectOutputStreamADD"/>
+    <fullyQualifiedTypeName name="java.io.EOFException"/>
+    <fullyQualifiedTypeName name="dao.DestinoDAO"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="dao.ReservaDAO"/>
+    <fullyQualifiedTypeName name="model.Reserva"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="appGestorBiblioteca.model.libro.Libro"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="appGestorBiblioteca.model.gestor.GestorLibros"/>
+    <fullyQualifiedTypeName name="appGestorBiblioteca.model.gestor.GestorPresDev"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
 </qualifiedTypeNameHistroy>

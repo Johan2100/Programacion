@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -48,37 +49,129 @@ public class DestinoDAO {
 	}
 	
 	public static boolean delete(String nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
-		File f = new File("datos\\temp");
-		
-		if(datos.length() == 0)
-			return false;
+		File temp = new File("datos\\temp.dat");
 	
+		boolean encontrado = false;
 		
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(datos));
-		Destino des;
-		while((des = (Destino)ois.readObject()) != null) {
-			if(!(des.getNombreDestino().equals(nombre))) {
-				try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f,true))){
-					oos.writeObject(des);
-				}catch(IOException e) {
-					e.printStackTrace();
-					return false;
-				}
-			
-			}
+		if (!datos.exists() || datos.length() == 0) {
+		    return false;
 		}
 		
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(datos)); 
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(temp)) ) {
+				
+				boolean fin = false;
+				
+				while(!fin) {
+					try {
+						Destino d = (Destino) ois.readObject();
+						if(!d.getNombreDestino().equals(nombre))
+							oos.writeObject(d);
+						else
+							encontrado =  true;
+						
+					}catch(EOFException e) {
+						fin = true;
+					}
+				}//while
+				
+		}
+		datos.delete();
+		temp.renameTo(datos);
 		
 		
-		return true;
-		
+		return encontrado;
 	}
 
-	public static boolean update(String nombre) {
-		return false;
+	public static boolean update(Destino des) throws ClassNotFoundException, IOException {
+		File temp = new File("datos\\temp.dat");
+		
+		boolean encontrado = false;
+		
+		if (!datos.exists() || datos.length() == 0) {
+		    return false;
+		}
+		
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(datos)); 
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(temp)) ) {
+				
+				boolean fin = false;
+				
+				while(!fin) {
+					try {
+						Destino d = (Destino) ois.readObject();
+						if(!(d.getNombreDestino().equals(des.getNombreDestino()))) {
+							oos.writeObject(d);
+						}else
+							oos.writeObject(des);
+							encontrado =  true;
+						
+						
+					}catch(EOFException e) {
+						fin = true;
+					}
+				}//while
+				
+		}
+		datos.delete();
+		temp.renameTo(datos);
+		
+		
+		return encontrado;
+		
 	}
+	
+	public static Destino get(String nombre) throws FileNotFoundException, IOException, ClassNotFoundException {
+	
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(datos))) {
+				
+				boolean fin = false;
+				
+				while(!fin) {
+					try {
+						Destino d = (Destino) ois.readObject();
+						if(d.getNombreDestino().equals(nombre)) {
+							return d;
+						}
+					}catch(EOFException e) {
+						fin = true;
+					}
+				}//while
+				
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
 	public static boolean existeDestino(Destino d ) {
 		return false;
+	}
+
+	public static void listarDestinos() throws FileNotFoundException, IOException, ClassNotFoundException {
+		if(!datos.exists() || datos.length() == 0) {
+			return;
+		}
+		
+		try (ObjectInputStream ois = new ObjectInputStream (new FileInputStream(datos))){
+		
+			boolean fin = false;
+			
+			while(!fin) {
+				try {
+					Destino d = (Destino) ois.readObject();
+					System.out.println(d);
+				}catch(EOFException e) {
+					fin = true;
+				}
+			}
+			
+			
+			
+		}
+		
 	}
 	
 	
